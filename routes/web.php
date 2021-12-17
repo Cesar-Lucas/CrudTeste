@@ -31,3 +31,9 @@ Route::post('/cadastrar-aluno', function(Request $request){
     ]);
     return view('index');
 });
+
+
+Route::get('/ver-cadastros', function(){
+    $alunos = Aluno::all();
+    return view('listaAlunos', ['alunos' => $alunos]);
+});

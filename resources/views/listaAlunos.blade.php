@@ -16,19 +16,21 @@
 
 		<div class="wrapper">
 			<div class="inner">
-				<form action="/cadastrar-aluno">
+				
 					<h3>Lista de Alunos</h3>
-					
-					<button>Cadastrar 
-						<i class="zmdi zmdi-arrow-right"></i>
-					</button>
-				</form>
+						<?php foreach($alunos as $aluno){ ?>
+						<tr>
+							<a href="/editar-aluno/{{$aluno->id}}"><td><?php echo $aluno->nome; ?></td></a>
+							<br>
+						</tr>
+						<?php } ?>
 
-				<form action="/ver-cadastros">
-					<button>Ver Cadastros 
-						<i class="zmdi zmdi-arrow-right"></i>
-					</button>
-				</form>
+					<form action="/cadastrar-aluno">
+						<button>Cadastrar 
+							<i class="zmdi zmdi-arrow-right"></i>
+						</button>
+					</form>
+				
 			</div>
 		</div>
 		
