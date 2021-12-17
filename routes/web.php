@@ -42,3 +42,21 @@ Route::get('/ver-aluno/{id}', function($id){
     $aluno = Aluno::find($id);
     return view('ver', ['aluno'=>$aluno]);
 });
+
+Route::get('/editar-aluno/{id}', function($id){
+    $aluno = Aluno::find($id);
+    return view('editar', ['aluno'=>$aluno]);
+});
+
+Route::post('/editar-aluno/{id}', function(Request $request, $id){
+    
+    $aluno = Aluno::find($id);
+
+    $aluno->update([
+        'nome' => $request->nome,
+        'contato' => $request->contato,
+        'email' => $request->email
+    ]);
+
+    return view('ver', ['aluno'=>$aluno]);
+});

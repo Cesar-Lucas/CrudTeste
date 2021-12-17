@@ -16,22 +16,22 @@
 
 		<div class="wrapper">
 			<div class="inner">
-				<form action="/cadastrar-aluno" method="POST">
+				<form action="/editar-aluno/{{$aluno->id}}" method="POST">
 					@csrf
 					<h3>Cadastrar Aluno</h3>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
 					<label class="form-group">
-						<input type="text" class="form-control" name="nome" required>
+						<input type="text" class="form-control" name="nome" value="{{$aluno->nome}}" required>
 						<span>Nome</span>
 						<span class="border"></span>
 					</label>
 					<label class="form-group">
-						<input type="text" class="form-control" name="contato"  required>
+						<input type="text" class="form-control" name="contato" value="{{$aluno->contato}}" required>
 						<span for="">Telefone</span>
 						<span class="border"></span>
 					</label>
 					<label class="form-group" >
-					<input type="email" class="form-control" name="email"  required>
+					<input type="email" class="form-control" name="email" value="{{$aluno->email}}" required>
 						<span for="">E-mail</span>
 						<span class="border"></span>
 					</label>

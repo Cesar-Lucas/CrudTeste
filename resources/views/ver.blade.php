@@ -30,7 +30,7 @@
 
 
 
-				<form action="/editar-cadastro">
+				<form action="/editar-aluno/{{$aluno->id}}">
 					<button class="btn btn-primary">Editar 
 						<i </i>
 					</button>
