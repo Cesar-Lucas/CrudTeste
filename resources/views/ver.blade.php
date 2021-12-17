@@ -16,16 +16,23 @@
 
 		<div class="wrapper">
 			<div class="inner">
-				<form action="/cadastrar-aluno">
-					<h3>Lista de Alunos</h3>
-					
-					<button>Cadastrar 
+				
+				<h3><?php echo $aluno->nome; ?></h3>
+
+				<form action="/editar-cadastro">
+					<button>Editar 
+						<i class="zmdi zmdi-arrow-right"></i>
+					</button>
+				</form>
+
+				<form action="/excluir-cadastros">
+					<button>Excluir 
 						<i class="zmdi zmdi-arrow-right"></i>
 					</button>
 				</form>
 
 				<form action="/ver-cadastros">
-					<button>Ver Cadastros 
+					<button>Voltar 
 						<i class="zmdi zmdi-arrow-right"></i>
 					</button>
 				</form>

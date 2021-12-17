@@ -37,3 +37,8 @@ Route::get('/ver-cadastros', function(){
     $alunos = Aluno::all();
     return view('listaAlunos', ['alunos' => $alunos]);
 });
+
+Route::get('/ver-aluno/{id}', function($id){
+    $aluno = Aluno::find($id);
+    return view('ver', ['aluno'=>$aluno]);
+});
