@@ -18,22 +18,33 @@
 			<div class="inner">
 				
 				<h3><?php echo $aluno->nome; ?></h3>
+					<br>
+
+					<h4>ID: <?php echo $aluno->id; ?></h4>
+					<br>
+					<h4>Contato: <?php echo $aluno->contato; ?></h4>
+					<br>
+					<h4>Email: <?php echo $aluno->email; ?></h4>
+					
+
+
+
 
 				<form action="/editar-cadastro">
-					<button>Editar 
-						<i class="zmdi zmdi-arrow-right"></i>
+					<button class="btn btn-primary">Editar 
+						<i </i>
 					</button>
 				</form>
 
 				<form action="/excluir-cadastros">
-					<button>Excluir 
-						<i class="zmdi zmdi-arrow-right"></i>
+					<button class="btn btn-primary">Excluir 
+						<i class=""></i>
 					</button>
 				</form>
 
 				<form action="/ver-cadastros">
-					<button>Voltar 
-						<i class="zmdi zmdi-arrow-right"></i>
+					<button class="btn btn-primary">Voltar 
+						<i class=""></i>
 					</button>
 				</form>
 			</div>
