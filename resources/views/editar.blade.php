@@ -19,22 +19,40 @@
 				<form action="/editar-aluno/{{$aluno->id}}" method="POST">
 					@csrf
 					<h3>Edição</h3>
-				
+
 					<label class="form-group">
-						<input type="text" minlength="5" pattern="[A-Za-z]+" class="form-control" 	value="{{$aluno->nome}}"  name="nome" required>
+						<input type="text" pattern="[A-Za-z]+" class="form-control" 	value="{{$aluno->nome}}"  name="nome">
 						<span>Nome</span>
 						<span class="border"></span>
+						@error('nome')
+							<div class="invalid-feedback">
+								{{$message}}
+							</div>
+						@enderror
 					</label>
+					
+
 					<label class="form-group">
-						<input type="tel" max="9" min="9" pattern="[0-9]{9}" placeholder="999999999" class="form-control" value="{{$aluno->contato}}" name="contato"  required>
+						<input type="tel" placeholder="999999999" class="form-control" value="{{$aluno->contato}}"  name="contato">
 						<span for="">Telefone</span>
 						<span class="border"></span>
+						@error('contato')
+							<div class="invalid-feedback">
+								{{$message}}
+							</div>
+						@enderror
 					</label>
 					<label class="form-group" >
-					<input type="email" class="form-control" value="{{$aluno->email}}" name="email"  required>
+						<input type="text" class="form-control" value="{{$aluno->email}}" name="email">
 						<span for="">E-mail</span>
 						<span class="border"></span>
+						@error('email')
+							<div class="invalid-feedback">
+								{{$message}}
+							</div>
+						@enderror
 					</label>
+
 					<button>Cadastrar 
 						<i class="zmdi zmdi-arrow-right"></i>
 					</button>

@@ -5,6 +5,7 @@
 use App\Http\Controllers\AlunoController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use Illuminate\Contracts\Validator;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,13 +27,23 @@ Route::get('/cadastrar-aluno', function () {
 });
 
 Route::post('/cadastrar-aluno', function(Request $request){
+
+  
+    $request->validate([
+        'nome' => ['required', 'min:5'],
+        'contato' => ['required', 'min:9', 'max:9'],
+        'email' => ['required', 'email:rfc,dns'],
+    ]);
+
     Aluno::create([
         'nome' => $request->nome,
         'contato' => $request->contato,
         'email' => $request->email
     ]);
     return view('index');
-});
+}
+
+);
 
 
 Route::get('/ver-cadastros', function(){
@@ -54,6 +65,12 @@ Route::get('/editar-aluno/{id}', function($id){
 
 Route::post('/editar-aluno/{id}', function(Request $request, $id){
     
+    $request->validate([
+        'nome' => ['required', 'min:5'],
+        'contato' => ['required', 'min:9', 'max:9'],
+        'email' => ['required', 'email:rfc,dns'],
+    ]);
+
     $aluno = Aluno::find($id);
 
     $aluno->update([
