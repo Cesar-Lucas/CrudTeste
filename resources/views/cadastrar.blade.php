@@ -17,11 +17,11 @@
 		<div class="wrapper">
 			<div class="inner">
 
-
+			<h3>Cadastrar Aluno</h3>
 
 				<form action="/cadastrar-aluno" method="POST">
 					@csrf
-					<h3>Cadastrar Aluno</h3>
+					
 					
 
 						
@@ -71,9 +71,7 @@
 							</div>
 						@enderror
 					</label>
-					<button>Cadastrar 
-						<i class="zmdi zmdi-arrow-right"></i>
-					</button>
+					<button name="cadastrar">Cadastrar</button>
 				</form>
 			</div>
 		</div>

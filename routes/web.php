@@ -6,6 +6,7 @@ use App\Http\Controllers\AlunoController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Validator;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,23 +18,22 @@ use Illuminate\Contracts\Validator;
 |
 */
 use App\Models\Aluno;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('index');
 });
 
 
-
 Route::get('/cadastrar-aluno', function () {
     return view('cadastrar');
-});
+})/* ->middleware('auth') */;
 
 Route::post('/cadastrar-aluno', function(Request $request){
 
-  
     $request->validate([
         'nome' => ['required', 'min:5'],
-        'contato' => ['required', 'min:9', 'max:9', 'Numeric'],
+        'contato' => ['required', 'min:9', 'Numeric'],
         'email' => ['required', 'email:rfc,dns'],
     ]);
 
@@ -43,7 +43,7 @@ Route::post('/cadastrar-aluno', function(Request $request){
         'email' => $request->email
     ]);
     return view('index');
-});
+})/* ->middleware('auth') */;
 
 
 
@@ -58,14 +58,14 @@ Route::get('/ver-cadastros', function(){
 Route::get('/ver-aluno/{id}', function($id){
     $aluno = Aluno::find($id);
     return view('ver', ['aluno'=>$aluno]);
-});
+})->middleware('auth');
 
 
 
 Route::get('/editar-aluno/{id}', function($id){
     $aluno = Aluno::find($id);
     return view('editar', ['aluno'=>$aluno]);
-});
+})->middleware('auth');
 
 Route::post('/editar-aluno/{id}', function(Request $request, $id){
     
@@ -84,11 +84,15 @@ Route::post('/editar-aluno/{id}', function(Request $request, $id){
     ]);
 
     return view('ver', ['aluno'=>$aluno]);
-});
+})->middleware('auth');
 
 
 
 
 Route::get('/deletar-cadastro/{id}', function($id){
     Aluno::find($id)->delete();
-});
+})->middleware('auth');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
