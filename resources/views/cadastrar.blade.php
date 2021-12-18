@@ -19,7 +19,7 @@
 				<form action="/cadastrar-aluno" method="POST">
 					@csrf
 					<h3>Cadastrar Aluno</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+					
 					<label class="form-group">
 						<input type="text" minlength="5" pattern="[A-Za-z]+" class="form-control" name="nome" required>
 						<span>Nome</span>

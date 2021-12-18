@@ -19,8 +19,8 @@ class CreateAlunosTable extends Migration
         Schema::create('alunos', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('contato');
-            $table->string('email');
+            $table->string('contato')->unique();
+            $table->string('email')->unique();
            /*  $table->softDeletes($column = 'deleted_at', $precision = 0); */
             $table->timestamps();
         });
