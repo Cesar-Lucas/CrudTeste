@@ -52,7 +52,7 @@
 					
 
 					<label class="form-group">
-						<input type="tel" placeholder="999999999" class="form-control" name="contato">
+						<input type="text" placeholder="999999999" class="form-control" name="contato">
 						<span for="">Telefone</span>
 						<span class="border"></span>
 						@error('contato')

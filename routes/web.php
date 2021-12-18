@@ -22,6 +22,8 @@ Route::get('/', function () {
     return view('index');
 });
 
+
+
 Route::get('/cadastrar-aluno', function () {
     return view('cadastrar');
 });
@@ -31,7 +33,7 @@ Route::post('/cadastrar-aluno', function(Request $request){
   
     $request->validate([
         'nome' => ['required', 'min:5'],
-        'contato' => ['required', 'min:9', 'max:9'],
+        'contato' => ['required', 'min:9', 'max:9', 'Numeric'],
         'email' => ['required', 'email:rfc,dns'],
     ]);
 
@@ -41,9 +43,9 @@ Route::post('/cadastrar-aluno', function(Request $request){
         'email' => $request->email
     ]);
     return view('index');
-}
+});
 
-);
+
 
 
 Route::get('/ver-cadastros', function(){
@@ -57,6 +59,8 @@ Route::get('/ver-aluno/{id}', function($id){
     $aluno = Aluno::find($id);
     return view('ver', ['aluno'=>$aluno]);
 });
+
+
 
 Route::get('/editar-aluno/{id}', function($id){
     $aluno = Aluno::find($id);
@@ -81,6 +85,8 @@ Route::post('/editar-aluno/{id}', function(Request $request, $id){
 
     return view('ver', ['aluno'=>$aluno]);
 });
+
+
 
 
 Route::get('/deletar-cadastro/{id}', function($id){
