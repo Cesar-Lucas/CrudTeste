@@ -13,14 +13,26 @@ class CreateAlunosTable extends Migration
      */
     public function up()
     {
+       
+       
+
         Schema::create('alunos', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
             $table->string('contato');
             $table->string('email');
+           /*  $table->softDeletes($column = 'deleted_at', $precision = 0); */
             $table->timestamps();
         });
+       
+        /*  Schema::table('alunos', function (Blueprint $table) {
+            $table->softDeletes();
+        });  */
+       
     }
+
+   
+    
 
     /**
      * Reverse the migrations.
@@ -29,6 +41,16 @@ class CreateAlunosTable extends Migration
      */
     public function down()
     {
+
+      
+   
+
         Schema::dropIfExists('alunos');
+        
+        
+       /*  Schema::table('alunos', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });  */
     }
+       
 }

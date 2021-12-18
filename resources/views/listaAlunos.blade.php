@@ -20,6 +20,11 @@
 						<?php foreach($alunos as $aluno){ ?>
 						<tr>
 							<a href="/ver-aluno/{{$aluno->id}}"><td><?php echo $aluno->nome; ?></td></a>
+							<form action="/deletar-cadastro/{{$aluno->id}}">
+							<button>Excluir 
+								<i class="zmdi zmdi-arrow-right"></i>
+							</button>
+					</form>
 							<br>
 						</tr>
 						<?php } ?>

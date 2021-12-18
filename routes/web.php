@@ -1,6 +1,8 @@
 <?php
 
 /* use GuzzleHttp\Psr7\Request; */
+
+use App\Http\Controllers\AlunoController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 /*
@@ -38,6 +40,8 @@ Route::get('/ver-cadastros', function(){
     return view('listaAlunos', ['alunos' => $alunos]);
 });
 
+/* Route::get('/ver-cadastros', [AlunoController::class, 'index'])->name('aluno.index'); */
+
 Route::get('/ver-aluno/{id}', function($id){
     $aluno = Aluno::find($id);
     return view('ver', ['aluno'=>$aluno]);
@@ -59,4 +63,9 @@ Route::post('/editar-aluno/{id}', function(Request $request, $id){
     ]);
 
     return view('ver', ['aluno'=>$aluno]);
+});
+
+
+Route::get('/deletar-cadastro/{id}', function($id){
+    Aluno::find($id)->delete();
 });

@@ -36,7 +36,7 @@
 					</button>
 				</form>
 
-				<form action="/excluir-cadastros">
+				<form action="/deletar-cadastro/{{$aluno->id}}">
 					<button class="btn btn-primary">Excluir 
 						<i class=""></i>
 					</button>
