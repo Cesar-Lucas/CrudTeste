@@ -27,7 +27,7 @@ Route::get('/', function () {
 
 Route::get('/cadastrar-aluno', function () {
     return view('cadastrar');
-})/* ->middleware('auth') */;
+})->middleware('auth');
 
 Route::post('/cadastrar-aluno', function(Request $request){
 
@@ -43,7 +43,7 @@ Route::post('/cadastrar-aluno', function(Request $request){
         'email' => $request->email
     ]);
     return view('index');
-})/* ->middleware('auth') */;
+})->middleware('auth');
 
 
 

@@ -18,7 +18,7 @@
 			<div class="inner">
 				<form action="/cadastrar-aluno">
 					<h3>Lista de Alunos</h3>
-					<p>Todos Os Capos Devem Ser Preenchidos </p>
+					<p>Bem Vindo</p>
 					<button>Cadastrar 
 						<i class="zmdi zmdi-arrow-right"></i>
 					</button>
