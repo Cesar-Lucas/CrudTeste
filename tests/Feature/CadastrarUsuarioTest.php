@@ -19,7 +19,6 @@ class CadastrarUsuarioTest extends TestCase
             ->assertRedirect('/login');
     }
 
-
     /** @test */
     public function ApenasUsuariosLogadosPodemExcluirAlunos()
     {
@@ -35,12 +34,10 @@ class CadastrarUsuarioTest extends TestCase
     }
 
      /** @test */
-    public function ApenasUsuariosLogadosPodemVerAlunos()
+    public function ApenasUsuariosLogadosPodemVerDadosDoAluno()
     {
         $response = $this->get('/ver-aluno/1')
             ->assertRedirect('/login');
     }
 
-
-    
 }

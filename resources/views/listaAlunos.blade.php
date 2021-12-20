@@ -17,15 +17,15 @@
 		<div class="wrapper">
 			<div class="inner">
 					<h3>Lista de Alunos</h3>
+					<br><br>
 						<?php foreach($alunos as $aluno){ ?>
 						<tr>
 							<a href="/ver-aluno/{{$aluno->id}}"><td><?php echo $aluno->nome; ?></td></a>
 							<form action="/deletar-cadastro/{{$aluno->id}}">
-							<button>Excluir 
-								<i class="zmdi zmdi-arrow-right"></i>
-							</button>
+							<button>Excluir</button>
+							<br><br><br>
 					</form>
-							<br>
+							
 						</tr>
 						<?php } ?>
 					<form action="/cadastrar-aluno">
