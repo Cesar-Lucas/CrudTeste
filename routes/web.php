@@ -3,6 +3,7 @@
 /* use GuzzleHttp\Psr7\Request; */
 
 use App\Http\Controllers\AlunoController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Validator;
@@ -24,10 +25,15 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/cadastrar-aluno', [AlunoController::class, 'create'])->name('aluno.create');
+   
+});
 
-Route::get('/cadastrar-aluno', function () {
-    return view('cadastrar');
-})->middleware('auth');
+
+// Route::get('/cadastrar-aluno', function () {
+//     return view('cadastrar');
+// })->middleware('auth');
 
 Route::post('/cadastrar-aluno', function(Request $request){
 
@@ -76,6 +82,8 @@ Route::post('/editar-aluno/{id}', function(Request $request, $id){
     ]);
 
     $aluno = Aluno::find($id);
+    
+    $aluno->update($request->all());
 
     $aluno->update([
         'nome' => $request->nome,
@@ -95,4 +103,4 @@ Route::get('/deletar-cadastro/{id}', function($id){
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
